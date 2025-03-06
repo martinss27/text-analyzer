@@ -4,15 +4,17 @@ from collections import Counter
 
 def text_analyzer(text):
     text = text.translate(str.maketrans('','', string.punctuation)).lower()
+    
+    if not text:
+        print("No valid words to analyze")
+        return
 
     words = text.split()
 
     num_words = len(words)
-    
     num_characters = sum(len(word) for word in words)
     
     longest_word = max(words,key=len)
-    
     shortest_word = min(words,key=len)
 
     unique_words = set(words)
